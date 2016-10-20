@@ -17,3 +17,4 @@
 第四步：通过SqlSession会话对数据库进行CRUD操作
 第五步：关闭SqlSession会话。
 
+4、insert的时候需要提交，但是和spring整合后就不需要了。会自动提交

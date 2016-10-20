@@ -14,6 +14,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<insert id="insertUser" parameterType="com.mybatis.po.User">
+	<!-- keyProperty:表示自增主键的id -->
+		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
 		INSERT INTO USER (username,birthday,sex,address) VALUE(#{username},#{birthday},#{sex},#{address})
 	</insert>
+	
+	<delete id="deleteUser" parameterType="com.mybatis.po.User">
+		DELETE FROM USER WHERE id=#{value}
+	</delete>
+	
+	
+	<update id="updateUser" parameterType="com.mybatis.po.User">
+		update user set username=#{username}, birthday=#{birthday},sex=#{sex},address=#{address}
+		where id=#{id}
+	</update>
+	
+	
 </mapper>
