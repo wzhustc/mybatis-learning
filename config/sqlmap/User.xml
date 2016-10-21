@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="test">
 
-	<select id="findUserById" parameterType="int" resultType="com.mybatis.po.User">
+	<select id="findUserById" parameterType="int" resultType="user">
 		SELECT * FROM USER WHERE id=#{value}
 	</select>
 	
@@ -27,8 +27,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<update id="updateUser" parameterType="com.mybatis.po.User">
-		update user set username=#{username}, birthday=#{birthday},sex=#{sex},address=#{address}
-		where id=#{id}
+		UPDATE USER SET username=#{username}, birthday=#{birthday},sex=#{sex},address=#{address}
+		WHERE id=#{id}
 	</update>
 	
 	
